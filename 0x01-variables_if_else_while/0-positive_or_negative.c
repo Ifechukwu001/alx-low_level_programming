@@ -7,7 +7,7 @@
  * main - generates a random number and decides if the integer is
  * positive, negetive or zero.
  *
- * Return - Always return 0 if succesful.
+ * Return: Always return 0 if succesful.
  */
 int main(void)
 {
