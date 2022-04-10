@@ -4,7 +4,7 @@
 #include <stdio.h>
 /* betty style doc for function main goes there */
 /**
- * main - generates a random number and decides if the integer is 
+ * main - generates a random number and decides if the integer is
  * positive, negetive or zero.
  *
  * Return - Always return 0 if succesful.
