@@ -1,12 +1,12 @@
 #include "main.h"
 /**
- * print_triange - prints a triangle according to size.
+ * print_triangle - prints a triangle according to size.
  * @size: Size of the triangle.
  * Return: void.
  */
 void print_triangle(int size)
 {
-	int i , j;
+	int i, j;
 
 	for (i = 1; i <= size; i++)
 	{
