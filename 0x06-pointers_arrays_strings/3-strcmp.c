@@ -3,7 +3,7 @@
  * _strcmp - compares the lengths of different strings.
  * @s1: First string.
  * @s2: Second string.
- * Return: -1 if <, 0 if =, 1 if >.
+ * Return: -15 if <, 0 if =, 15 if >.
  */
 int _strcmp(char *s1, char *s2)
 {
@@ -13,5 +13,11 @@ int _strcmp(char *s1, char *s2)
 		cnt1++;
 	while (s2[cnt2] != '\0')
 		cnt2++;
-	return (cnt1 - cnt2);
+
+	if (cnt1 > cnt2)
+		return (15);
+	else if (cnt1 < cnt2)
+		return (-15);
+	else
+		return (0);
 }
