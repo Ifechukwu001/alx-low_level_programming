@@ -17,23 +17,22 @@ void print_char(char *c, char *x)
 }
 
 /**
+ * check_null - checks for the NULL's address in a string.
+ * @s: String.
+ * Return: A pointer to NULL.
+ */
+char *check_null(char *s)
+{
+	return ((*s == '\0') ? s: check_null(++s));
+}
+
+/**
  * _print_rev_recursion - prints a string backwards.
  * @s: String to be printed.
  * Return: Void.
  */
 void _print_rev_recursion(char *s)
 {
-	int i;
-	char *ptr;
-
-	for (i = 0; ; i++)
-	{
-		if (s[i] == '\0')
-		{
-			ptr = &s[i];
-			break;
-		}
-	}
-
+	char *ptr = check_null(s);
 	print_char(--ptr, s);
 }
