@@ -23,7 +23,7 @@ void print_char(char *c, char *x)
  */
 char *check_null(char *s)
 {
-	return ((*s == '\0') ? s: check_null(++s));
+	return ((*s == '\0') ? s : check_null(++s));
 }
 
 /**
@@ -38,6 +38,7 @@ void _print_rev_recursion(char *s)
 	else
 	{
 		char *ptr = check_null(s);
+
 		print_char(--ptr, s);
 	}
 }
