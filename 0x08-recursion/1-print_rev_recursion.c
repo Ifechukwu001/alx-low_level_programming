@@ -33,8 +33,8 @@ char *check_null(char *s)
  */
 void _print_rev_recursion(char *s)
 {
-	if (*s == "")
-		_putchar("");
+	if (*s == '\0')
+		_putchar('\0');
 	else
 	{
 		char *ptr = check_null(s);
