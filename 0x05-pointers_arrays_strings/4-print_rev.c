@@ -16,7 +16,7 @@ char *check_null(char *s)
  */
 void print_rev(char *s)
 {
-	char *pt = check_null(s);
+	char *pt = check_null(s) - 1;
 
 	while (!(pt < s))
 	{
