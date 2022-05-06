@@ -23,7 +23,7 @@ int _strlen(char *s)
 char *_strdup(char *str)
 {
 	int i, str_size = _strlen(str);
-	char *ptr;
+	char *ptr = '\0';
 
 	if (str)
 	{
