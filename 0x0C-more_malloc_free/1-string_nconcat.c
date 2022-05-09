@@ -72,13 +72,15 @@ char *_strncpy(char *dest, char *src, int n)
  */
 char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
-	int s1_size;
+	int s1_size, s2_size;
 	char *ptr;
 
 	s1 = (*s1 == 0) ? '\0' : s1;
 	s2 = (*s2 == 0) ? '\0' : s2;
 
 	s1_size = _strlen(s1);
+	s2_size = _strlen(s2);
+	n = (n >= (unsigned int) s2_size) ? (unsigned int) s2_size : n;
 	ptr = malloc(s1_size + n + 1);
 
 	if (ptr)
