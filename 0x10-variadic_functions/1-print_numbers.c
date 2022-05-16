@@ -14,7 +14,10 @@ void print_numbers(const char *separator, const unsigned int n, ...)
 	va_list numbers;
 
 	if (separator == NULL)
+	{
+		printf("\n");
 		exit(EXIT_FAILURE);
+	}
 	else
 	{
 		va_start(numbers, n);
