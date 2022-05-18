@@ -61,10 +61,8 @@ void print_all(const char * const format, ...)
 	{
 		was_printed = check_case(format[i], arguments);
 		++i;
-		while (was_printed)
-		{
-			if (format[i] != '\0')
-				printf(", ");
+		while (was_printed && format[i] != '\0')
+		{	printf(", ");
 			was_printed = 0;
 		}
 	}
