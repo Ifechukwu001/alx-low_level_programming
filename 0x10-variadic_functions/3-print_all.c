@@ -53,20 +53,18 @@ void print_all(const char * const format, ...)
 	if (format == NULL)
 	{
 		printf("(nil)");
+		exit(EXIT_FAILURE);
 	}
-	else
+	va_start(arguments, format);
+	while (format[i] != '\0')
 	{
-		va_start(arguments, format);
-		while (format[i] != '\0')
+		was_printed = check_case(format[i], arguments);
+		++i;
+		while (was_printed)
 		{
-			was_printed = check_case(format[i], arguments);
-			++i;
-			while (was_printed)
-			{
-				if (format[i] != '\0')
-					printf(", ");
-				was_printed = 0;
-			}
+			if (format[i] != '\0')
+				printf(", ");
+			was_printed = 0;
 		}
 	}
 	printf("\n");
