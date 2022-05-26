@@ -7,7 +7,7 @@
  */
 size_t listint_len(const listint_t *h)
 {
-	if (h == (void *)0)
+	if (h == (listint_t *)0)
 		return (0);
 	if (h->next == (void *)0)
 		return (1);
