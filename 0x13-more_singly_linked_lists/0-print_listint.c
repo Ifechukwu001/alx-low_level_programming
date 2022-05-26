@@ -7,10 +7,10 @@
  */
 size_t print_listint(const listint_t *h)
 {
-	if (h == (void *)0)
+	if (h == ((void *)0))
 		return (0);
 	printf("%d\n", h->n);
-	if (h->next == (void *)0)
+	if (h->next == ((void *)0))
 		return (1);
 	else
 		return (1 + print_listint(h->next));
