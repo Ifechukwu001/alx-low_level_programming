@@ -9,8 +9,7 @@ void free_listint2(listint_t **head)
 {
 	listint_t *current;
 
-	if (head == NULL)
-		exit(EXIT_FAILURE);
+	if (!(head == NULL))
 	while ((current = (*head)) != NULL)
 	{
 		(*head) = (*head)->next;
