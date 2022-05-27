@@ -7,13 +7,13 @@
  */
 size_t print_listint(const listint_t *h)
 {
-	/**
-	 * if (h == (listint_t *)0)
-	 * return (0);
-	 */
-	printf("%d\n", h->n);
-	if (h->next == ((void *)0))
-		return (1);
-	else
-		return (1 + print_listint(h->next));
+	int i = 0;
+
+	while (h != NULL)
+	{
+		printf("%d\n", h->n);
+		h = h->next;
+		i++;
+	}
+	return (i);
 }
