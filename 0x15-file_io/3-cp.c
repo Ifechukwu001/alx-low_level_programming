@@ -68,8 +68,7 @@ int main(int argc, char *argv[])
 		exit(98);
 	}
 
-	fd_to = open(argv[2], O_WRONLY | O_APPEND | O_TRUNC | O_CREAT,
-		     S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH);
+	fd_to = open(argv[2], O_WRONLY | O_APPEND | O_TRUNC | O_CREAT, 0664);
 	if (fd_to == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
