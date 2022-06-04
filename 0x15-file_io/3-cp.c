@@ -15,7 +15,7 @@
 void copier(int fd_from, int fd_to, char *buffer,
 	    char *file_from, char *file_to)
 {
-	int readchars = 1, writechars;
+	int readchars = 1, writechars, close_out;
 
 	while (readchars)
 	{
@@ -24,8 +24,20 @@ void copier(int fd_from, int fd_to, char *buffer,
 		{
 			dprintf(STDERR_FILENO, "Error: Can't read from file %s\n"
 				, file_from);
-			close(fd_from);
-			close(fd_to);
+			close_out = close(fd_from);
+			if (close_out != 0)
+			{
+				dprintf(STDERR_FILENO,
+					"Error: Can't close fd %d\n", fd_from);
+				exit(100);
+			}
+			close_out = close(fd_to);
+			if (close_out != 0)
+			{
+				dprintf(STDERR_FILENO,
+					"Error: Can't close fd %d\n", fd_to);
+				exit(100);
+			}
 			free(buffer);
 			exit(98);
 		}
@@ -51,7 +63,7 @@ void copier(int fd_from, int fd_to, char *buffer,
  */
 int main(int argc, char *argv[])
 {
-	int fd_from, fd_to;
+	int fd_from, fd_to, close_out;
 	char *buffer;
 
 	if (argc != 3)
@@ -72,15 +84,33 @@ int main(int argc, char *argv[])
 	if (fd_to == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
-		close(fd_from);
+		close_out = close(fd_from);
+		if (close_out != 0)
+		{
+			dprintf(STDERR_FILENO,
+				"Error: Can't close fd %d\n", fd_from);
+			exit(100);
+		}
 		exit(99);
 	}
 
 	buffer = malloc(sizeof(char) * 1024);
 	copier(fd_from, fd_to, buffer, argv[1], argv[2]);
 
-	close(fd_from);
-	close(fd_to);
+	close_out = close(fd_from);
+	if (close_out != 0)
+	{
+		dprintf(STDERR_FILENO,
+			"Error: Can't close fd %d\n", fd_from);
+		exit(100);
+	}
+	close_out = close(fd_to);
+	if (close_out != 0)
+	{
+		dprintf(STDERR_FILENO,
+			"Error: Can't close fd %d\n", fd_to);
+		exit(100);
+	}
 	free(buffer);
 	return (0);
 }
