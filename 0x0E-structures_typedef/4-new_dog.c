@@ -2,7 +2,7 @@
 #include <string.h>
 #include "dog.h"
 
-#include "main.h"
+
 /**
  * _strlen - checks the lenght of the string.
  * @s: Character array (string).
