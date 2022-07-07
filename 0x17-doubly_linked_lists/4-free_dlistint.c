@@ -1,7 +1,7 @@
 #include "lists.h"
 
 /**
- * free_dlistint - Frees the memory allocated to a doubly linked list.\
+ * free_dlistint - Frees the memory allocated to a doubly linked list.
  * @head: Pointer to the HEAD of the list.
  * Return: Void.
  */
