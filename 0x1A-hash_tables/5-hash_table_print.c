@@ -11,21 +11,24 @@ void hash_table_print(const hash_table_t *ht)
 	unsigned long int idx;
 	int first_flag = 1;
 
-	putchar('{');
-
-	for (idx = 0; idx < ht->size; idx++)
+	if (ht != NULL)
 	{
-		current = ht->array[idx];
-		while (current)
-		{
-			if (first_flag)
-				first_flag = 0;
-			else
-				printf(", ");
-			printf("'%s': '%s'", current->key, current->value);
-			current = current->next;
-		}
-	}
+		putchar('{');
 
-	printf("}\n");
+		for (idx = 0; idx < ht->size; idx++)
+		{
+			current = ht->array[idx];
+			while (current)
+			{
+				if (first_flag)
+					first_flag = 0;
+				else
+					printf(", ");
+				printf("'%s': '%s'", current->key, current->value);
+				current = current->next;
+			}
+		}
+
+		printf("}\n");
+	}
 }
